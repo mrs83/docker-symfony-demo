@@ -1,0 +1,4 @@
+MYSQL_DATABASE=symfony
+MYSQL_USER=appuser
+MYSQL_PASSWORD=apppassword
+MYSQL_ROOT_PASSWORD=secret

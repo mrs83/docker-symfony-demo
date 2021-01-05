@@ -1,0 +1,14 @@
+# App
+./.envs/.production
+
+# Byte-compiled / optimized / DLL / test files
+.DS_Store
+
+# Other
+*.log
+*~
+.\#*
+\#*\#
+.idea
+.vscode
+*.code-workspace
