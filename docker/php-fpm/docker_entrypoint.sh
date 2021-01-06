@@ -8,7 +8,7 @@ if [[ $1 == 'serve' ]] ; then
 
     if [[ $2 == 'dev' ]] ; then
 
-        wait-for-it database:3306 -- bin/console doctrine:schema:update
+        wait-for-it database:3306 -- bin/console doctrine:schema:update --force
         bin/console doctrine:fixtures:load
         bin/console doctrine:migrations:migrate --allow-no-migration
 
