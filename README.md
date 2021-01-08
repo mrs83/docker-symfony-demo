@@ -15,4 +15,4 @@ How to test this?
 
 A testing demo app deployment can be provided by using [Docker ECS integration](https://docs.docker.com/cloud/ecs-integration/).
 
-TODO
+The project includes an Ansible playbook to deploy on ECS by using Cloudformation (based on [ecs-cloudformation](https://github.com/nathanpeck/ecs-cloudformation)).

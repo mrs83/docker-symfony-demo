@@ -18,7 +18,7 @@ Parameters:
   PHPServiceName:
     Type: String
     Default: php-fpm
-    Description: A name for the nginx service
+    Description: A name for the PHP service
   ImageUrl:
     Type: String
     Default: mscam/symfony-demo-nginx:latest
