@@ -1,0 +1,44 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Deploy CloudFormation Cluster
+      cloudformation:
+        stack_name: symfony-demo
+        state: present
+        region: "{{ aws.region }}"
+        template: cf/cluster-ec2-public-vpc.yml
+        template_parameters:
+          EnvironmentName: "{{ cf.EnvironmentName }}"
+          InstanceType: "{{ cf.InstanceType }}"
+          DesiredCapacity: "{{ cf.DesiredCapacity }}"
+          MaxSize: "{{ cf.MaxSize }}"
+    - name: Deploy Public ALB ingress
+      cloudformation:
+        stack_name: symfony-demo
+        state: present
+        region: "{{ aws.region }}"
+        template: cf/alb-external.yml
+        template_parameters:
+          EnvironmentName: "production"
+    - name: Deploy Services
+      cloudformation:
+        stack_name: symfony-demo
+        state: present
+        region: "{{ aws.region }}"
+        template: cf/service-ec2-public-vpc.yml
+        template_parameters:
+          EnvironmentName: "{{ cf.EnvironmentName }}"
+          ServiceName: "{{ cf.ServiceName }}"
+          PHPServiceName: "{{ cf.PHPServiceName }}"
+          ImageUrl: "{{ cf.ImageUrl }}"
+          PHPImageUrl: "{{ cf.PHPImageUrl }}"
+          ContainerPort: "{{ cf.ContainerPort }}"
+          ContainerCpu: "{{ cf.ContainerCpu }}"
+          PHPContainerCpu: "{{ cf.PHPContainerCpu }}"
+          ContainerMemory: "{{ cf.ContainerMemory }}"
+          PHPContainerMemory: "{{ cf.PHPContainerMemory }}"
+          AppSecret: "{{ symfony.app_secret }}"
+          DatabaseUrl: "{{ symfony.database_url }}"
