@@ -13,8 +13,6 @@ if [[ $1 == 'serve' ]] ; then
         bin/console doctrine:migrations:migrate --allow-no-migration
 
     elif [[ $2 == 'prod' ]] ; then
-
-        bin/console doctrine:migrations:migrate --allow-no-migration
         APP_ENV=prod
 
     fi
