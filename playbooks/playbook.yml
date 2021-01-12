@@ -15,6 +15,7 @@
           InstanceType: "{{ cf.InstanceType }}"
           DesiredCapacity: "{{ cf.DesiredCapacity }}"
           MaxSize: "{{ cf.MaxSize }}"
+          KeyName: "{{ aws.ec2_key_name }}"
     - name: Deploy Public ALB ingress
       cloudformation:
         stack_name: symfony-demo-alb-external

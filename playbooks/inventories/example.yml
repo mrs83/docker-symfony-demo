@@ -5,6 +5,7 @@ all:
       ansible_connection: local
   vars:
     aws:
+      ec2_key_name: "symfony-demo"
       region: "eu-west-1"
     cf:
       EnvironmentName: "production"
