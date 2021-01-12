@@ -15,6 +15,10 @@ Parameters:
   AppSecret:
     Type: String
     Description: Symfony App Secret
+  TrustedHosts:
+    Type: String
+    Description: Symfony TRUSTED_HOSTS setting.
+    Default: "^(localhost|example\.com)$"
   ServiceName:
     Type: String
     Default: nginx
@@ -135,6 +139,10 @@ Resources:
               Value: 'prod'
             - Name: MAILER_DSN
               Value: !Ref 'MailerDSN'
+            - Name: TRUSTED_PROXIES
+              Value: '127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16'
+            - Name: TRUSTED_HOSTS
+              Value: !Ref 'TrustedHosts'
           LogConfiguration:
             LogDriver: 'awslogs'
             Options:

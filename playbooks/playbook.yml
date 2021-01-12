@@ -44,3 +44,4 @@
           AppSecret: "{{ symfony.app_secret }}"
           DatabaseUrl: "{{ symfony.database_url }}"
           MailerDSN: "{{ symfony.mailer_dsn }}"
+          TrustedHosts: "{{ symfony.trusted_hosts }}"
