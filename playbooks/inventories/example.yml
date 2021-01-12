@@ -10,16 +10,18 @@ all:
       EnvironmentName: "production"
       InstanceType: "t2.small"
       DesiredCapacity: "1"
-      MaxSize: "1"
+      MaxSize: "2"
       ServiceName: "nginx"
       ImageUrl: "mscam/symfony-demo-nginx:latest"
       ContainerPort: 80
-      ContainerCpu: 256
+      ContainerCpu: 512
       ContainerMemory: 512
       PHPServiceName: "php-fpm"
       PHPImageUrl: "mscam/symfony-demo-php-fpm:latest"
-      PHPContainerCpu: 512
-      PHPContainerMemory: 1024
+      NGINXContainerCpu: 256
+      NGINXContainerMemory: 256
+      PHPContainerCpu: 256
+      PHPContainerMemory: 256
     symfony:
       app_secret: "{{ lookup('aws_secret', 'app/symfony-demo').app_secret }}"
       database_url: "{{ lookup('aws_secret', 'app/symfony-demo').database_url }}"

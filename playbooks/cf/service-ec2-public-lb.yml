@@ -35,19 +35,27 @@ Parameters:
     Description: What port number the application inside the docker container is binding to
   ContainerCpu:
     Type: Number
-    Default: 256
-    Description: How much CPU to give the nginx container. 1024 is 1 CPU
-  PHPContainerCpu:
-    Type: Number
     Default: 512
-    Description: How much CPU to give the PHP container. 1024 is 1 CPU
+    Description: How much CPU to give to the task. 1024 is 1 CPU
   ContainerMemory:
     Type: Number
     Default: 512
-    Description: How much memory in megabytes to give the nginx container
+    Description: How much memory in megabytes to give to the task
+  NGINXContainerCpu:
+    Type: Number
+    Default: 256
+    Description: How much CPU to give the NGINX container. 1024 is 1 CPU
+  NGINXContainerMemory:
+    Type: Number
+    Default: 256
+    Description: How much memory to give the NGINX container.
+  PHPContainerCpu:
+    Type: Number
+    Default: 256
+    Description: How much CPU to give the PHP container. 1024 is 1 CPU
   PHPContainerMemory:
     Type: Number
-    Default: 1024
+    Default: 256
     Description: How much memory in megabytes to give the PHP container
   Path:
     Type: String
@@ -96,8 +104,8 @@ Resources:
           - !Ref "AWS::NoValue"
       ContainerDefinitions:
         - Name: !Ref 'ServiceName'
-          Cpu: !Ref 'ContainerCpu'
-          Memory: !Ref 'ContainerMemory'
+          Cpu: !Ref 'NGINXContainerCpu'
+          Memory: !Ref 'NGINXContainerMemory'
           Image: !Ref 'ImageUrl'
           PortMappings:
             - ContainerPort: !Ref 'ContainerPort'

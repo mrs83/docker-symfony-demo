@@ -17,18 +17,18 @@
           MaxSize: "{{ cf.MaxSize }}"
     - name: Deploy Public ALB ingress
       cloudformation:
-        stack_name: symfony-demo
+        stack_name: symfony-demo-alb-external
         state: present
         region: "{{ aws.region }}"
         template: cf/alb-external.yml
         template_parameters:
-          EnvironmentName: "production"
+          EnvironmentName: "{{ cf.EnvironmentName }}"
     - name: Deploy Services
       cloudformation:
-        stack_name: symfony-demo
+        stack_name: symfony-demo-ec2-public-lb
         state: present
         region: "{{ aws.region }}"
-        template: cf/service-ec2-public-vpc.yml
+        template: cf/service-ec2-public-lb.yml
         template_parameters:
           EnvironmentName: "{{ cf.EnvironmentName }}"
           ServiceName: "{{ cf.ServiceName }}"
