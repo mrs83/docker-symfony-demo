@@ -132,7 +132,7 @@ Resources:
           LogConfiguration:
             LogDriver: 'awslogs'
             Options:
-              awslogs-group: !Sub ${EnvironmentName}-service-${PHPServiceName}
+              awslogs-group: !Sub ${EnvironmentName}-service-${ServiceName}
               awslogs-region: !Ref 'AWS::Region'
               awslogs-stream-prefix: !Ref 'PHPServiceName'
 

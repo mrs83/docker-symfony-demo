@@ -14,14 +14,14 @@ all:
       ServiceName: "nginx"
       ImageUrl: "mscam/symfony-demo-nginx:latest"
       ContainerPort: 80
-      ContainerCpu: 512
-      ContainerMemory: 512
+      ContainerCpu: 1024
+      ContainerMemory: 1024
       PHPServiceName: "php-fpm"
       PHPImageUrl: "mscam/symfony-demo-php-fpm:latest"
-      NGINXContainerCpu: 256
-      NGINXContainerMemory: 256
-      PHPContainerCpu: 256
-      PHPContainerMemory: 256
+      NGINXContainerCpu: 512
+      NGINXContainerMemory: 512
+      PHPContainerCpu: 512
+      PHPContainerMemory: 512
     symfony:
       app_secret: "{{ lookup('aws_secret', 'app/symfony-demo').app_secret }}"
       database_url: "{{ lookup('aws_secret', 'app/symfony-demo').database_url }}"
