@@ -24,5 +24,6 @@ all:
       PHPContainerCpu: 512
       PHPContainerMemory: 512
     symfony:
+      mailer_dsn: "native://default"
       app_secret: "{{ lookup('aws_secret', 'app/symfony-demo').app_secret }}"
       database_url: "{{ lookup('aws_secret', 'app/symfony-demo').database_url }}"

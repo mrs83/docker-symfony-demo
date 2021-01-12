@@ -43,3 +43,4 @@
           PHPContainerMemory: "{{ cf.PHPContainerMemory }}"
           AppSecret: "{{ symfony.app_secret }}"
           DatabaseUrl: "{{ symfony.database_url }}"
+          MailerDSN: "{{ symfony.mailer_dsn }}"

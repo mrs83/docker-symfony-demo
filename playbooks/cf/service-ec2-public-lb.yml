@@ -8,6 +8,10 @@ Parameters:
   DatabaseUrl:
     Type: String
     Description: Symfony App Database Url
+  MailerDSN:
+    Type: String
+    Default: "native://default"
+    Description: Mailer DSN
   AppSecret:
     Type: String
     Description: Symfony App Secret
@@ -129,6 +133,8 @@ Resources:
               Value: !Ref 'AppSecret'
             - Name: APP_ENV
               Value: 'prod'
+            - Name: MAILER_DSN
+              Value: !Ref 'MailerDSN'
           LogConfiguration:
             LogDriver: 'awslogs'
             Options:
