@@ -10,7 +10,7 @@ Parameters:
     Description: Symfony App Database Url
   MailerDSN:
     Type: String
-    Default: "native://default"
+    Default: "sendmail://default"
     Description: Mailer DSN
   AppSecret:
     Type: String

@@ -24,8 +24,8 @@ all:
       PHPContainerCpu: 512
       PHPContainerMemory: 512
     symfony:
-      mailer_dsn: "native://default"
+      mailer_dsn: "sendmail://default"
       app_secret: "{{ lookup('aws_secret', 'app/symfony-demo').app_secret }}"
       database_url: "{{ lookup('aws_secret', 'app/symfony-demo').database_url }}"
-      trusted_hosts: "127.0.0.1,amazonaws.com"
+      trusted_hosts: '["127.0.0.1", "REMOTE_ADDR"]'
       trusted_proxies: "127.0.0.0/8,10.0.0.0/8,172.17.0.0/12,192.168.0.0/16"
