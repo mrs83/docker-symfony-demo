@@ -121,7 +121,7 @@ Resources:
           Cpu: !Ref 'PHPContainerCpu'
           Memory: !Ref 'PHPContainerMemory'
           Image: !Ref 'PHPImageUrl'
-          EntryPoint: ['serve', 'prod']
+          EntryPoint: ['/docker_entrypoint.sh', 'serve', 'prod']
           Environment:
             - Name: DATABASE_URL
               Value: !Ref 'DatabaseUrl'
