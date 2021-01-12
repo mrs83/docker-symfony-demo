@@ -107,6 +107,8 @@ Resources:
           Cpu: !Ref 'NGINXContainerCpu'
           Memory: !Ref 'NGINXContainerMemory'
           Image: !Ref 'ImageUrl'
+          Links:
+            - php-fpm
           PortMappings:
             - ContainerPort: !Ref 'ContainerPort'
           LogConfiguration:
