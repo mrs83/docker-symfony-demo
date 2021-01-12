@@ -18,7 +18,7 @@ Parameters:
   TrustedHosts:
     Type: String
     Description: Symfony TRUSTED_HOSTS setting.
-    Default: "^(localhost|example\.com)$"
+    Default: "localhost"
   ServiceName:
     Type: String
     Default: nginx
