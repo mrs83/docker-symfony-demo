@@ -2,6 +2,7 @@ FROM php:7-fpm-alpine
 
 COPY docker/php-fpm/wait-for-it.sh /usr/bin/wait-for-it
 COPY docker/php-fpm/docker_entrypoint.sh /docker_entrypoint.sh
+# COPY docker/php-fpm/conf.d/php.ini /usr/local/etc/php/conf.d/php.override.ini
 
 RUN chmod +x /usr/bin/wait-for-it
 RUN chmod +x /docker_entrypoint.sh

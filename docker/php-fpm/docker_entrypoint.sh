@@ -14,10 +14,10 @@ if [[ $1 == 'serve' ]] ; then
 
     elif [[ $2 == 'prod' ]] ; then
         APP_ENV=prod
-
+        bin/console cache:clear
     fi
 
-    php-fpm
+    php-fpm --nodaemonize
 
 else
     exec "$@"
