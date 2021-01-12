@@ -19,6 +19,10 @@ Parameters:
     Type: String
     Description: Symfony TRUSTED_HOSTS setting.
     Default: "localhost"
+  TrustedProxies:
+    Type: String
+    Description: Symfony TRUSTED_PROXIES setting.
+    Default: "localhost,REMOTE_ADDR"
   ServiceName:
     Type: String
     Default: nginx
@@ -140,7 +144,7 @@ Resources:
             - Name: MAILER_DSN
               Value: !Ref 'MailerDSN'
             - Name: TRUSTED_PROXIES
-              Value: '127.0.0.0/8,10.0.0.0/8,172.17.0.0/16,172.16.0.0/12,192.168.0.0/16'
+              Value: !Ref 'TrustedProxies'
             - Name: TRUSTED_HOSTS
               Value: !Ref 'TrustedHosts'
           LogConfiguration:
