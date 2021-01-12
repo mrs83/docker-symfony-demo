@@ -22,7 +22,7 @@ Parameters:
   TrustedProxies:
     Type: String
     Description: Symfony TRUSTED_PROXIES setting.
-    Default: "localhost,REMOTE_ADDR"
+    Default: "127.0.0.1,REMOTE_ADDR"
   ServiceName:
     Type: String
     Default: nginx
